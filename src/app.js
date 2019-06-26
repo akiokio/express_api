@@ -1,10 +1,12 @@
+require("dotenv").config();
+
 import express from "express";
 import path from "path";
 
 import routes from "./routes";
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT;
 
 app.use("/static", express.static(path.join(__dirname, "public")));
 
