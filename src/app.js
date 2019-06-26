@@ -6,12 +6,14 @@ import cors from "cors";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import morgan from "morgan";
 
 import routes from "./routes";
 
 const app = express();
 const port = process.env.PORT;
 
+app.use(morgan("tiny"));
 app.use(cors());
 app.use(compression());
 app.use(cookieParser());
