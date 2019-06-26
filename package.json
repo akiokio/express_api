@@ -1,7 +1,7 @@
 {
   "name": "express-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A modern boilerplate for expressjs APIs",
   "main": "src/index.js",
   "module": "src/app.js",
   "scripts": {
