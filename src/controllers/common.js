@@ -1,4 +1,5 @@
-import { downloadFile } from "../utils/downloader";
+import { downloadJson } from "../utils/downloader";
+import { readJson } from "../utils/fileReader";
 
 export const home = (req, res) => {
   res.send("Hello common route");
@@ -18,7 +19,21 @@ export const downloader = async (req, res) => {
   }
 
   try {
-    const fileContent = await downloadFile(req.query.url);
+    const fileContent = await downloadJson(req.query.url);
+    res.send(fileContent);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
+};
+
+export const reader = async (req, res) => {
+  if (!req.query.path) {
+    res.status(400).send("path param is required");
+  }
+
+  try {
+    const fileContent = await readJson(req.query.path);
     res.send(fileContent);
   } catch (error) {
     console.error(error);

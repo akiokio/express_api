@@ -1,6 +1,6 @@
 import http from "http";
 
-export const downloadFile = url => {
+export const downloadJson = url => {
   return new Promise((resolve, reject) => {
     http.get(url, res => {
       const { statusCode } = res;
