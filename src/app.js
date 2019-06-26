@@ -7,6 +7,7 @@ import compression from "compression";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import morgan from "morgan";
+import favicon from "serve-favicon";
 
 import routes from "./routes";
 
@@ -20,6 +21,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 app.use("/static", express.static(path.join(__dirname, "public")));
 
 app.use(routes);
