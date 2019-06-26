@@ -20,7 +20,7 @@ export const downloader = async (req, res) => {
 
   try {
     const fileContent = await downloadJson(req.query.url);
-    res.send(fileContent);
+    res.json(fileContent);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
@@ -34,7 +34,7 @@ export const reader = async (req, res) => {
 
   try {
     const fileContent = await readJson(req.query.path);
-    res.send(fileContent);
+    res.json(fileContent);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
