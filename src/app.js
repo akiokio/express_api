@@ -2,11 +2,21 @@ require("dotenv").config();
 
 import express from "express";
 import path from "path";
+import cors from "cors";
+import compression from "compression";
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
 
 import routes from "./routes";
 
 const app = express();
 const port = process.env.PORT;
+
+app.use(cors());
+app.use(compression());
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use("/static", express.static(path.join(__dirname, "public")));
 
