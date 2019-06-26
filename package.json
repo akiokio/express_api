@@ -6,7 +6,7 @@
   "module": "src/app.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive './src/**/*.test.js' --require esm --watch --reporter spec --exit"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,10 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nock": "^10.0.6",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
   }
 }
